@@ -1,0 +1,49 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<div class="container text-center my-3">
+    <div class="jumbotron" style="background-color: green;color: white;">
+        <h2><i>Bienvenido {{username}}</i></h2>
+        <br>
+        <button class="btn btn-danger my-5" onclick="logout()">LOGOUT</button>
+    </div>
+</div>
+
+<script>
+    function redireccionar(pagina) {
+        location.href = pagina;
+    } 
+
+    function logout() {
+        console.log('logout');
+        redireccionar('/logout')
+    }
+</script>
+
+<div class="container mt-3">
+        <div class="jumbotron">
+            <h1>Ingrese Producto</h1>
+            <br>
+            <form autocomplete="off">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" class="form-control" type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input id="precio" class="form-control" type="number" step="0.5" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="foto">Foto URL</label>
+                    <input id="foto" class="form-control" type="text" name="thumbnail">
+                </div>
+                <button class="btn btn-success mt-3" name="enviar_prod">Enviar</button>
+            </form>
+            <hr>
+            <button class="btn btn-info mt-3" onclick="location.href = '/api/productos/vista'">Vista handlebars productos</button>
+            <br>
+            <br>
+            <div id="datos"></div>
+        </div>
+
+    <a href="./mensajes.html"><button class="btn btn-info mt-3"> Centro de Mensajes </button></a>
+</div>
